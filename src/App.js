@@ -27,14 +27,18 @@ class App extends Component {
     }
   }
 
-
+  removeLunch = (id) => {
+    this.setState({
+      lunches: this.state.lunches.filter(lunch => lunch.id !== id )
+    })
+  }
 
   render() {
     return (
       <div className="main-page">
         {
           this.state.lunches.map((lunch) => {
-            return <Lunch lunch={lunch} />
+            return <Lunch lunch={lunch} onCloseClick={this.removeLunch} />
           })
         }
       </div>
