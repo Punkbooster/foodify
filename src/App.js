@@ -1,20 +1,44 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Lunch from './components/Lunch';
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      lunches: [
+        {
+          id: 1,
+          restaurantName: 'Duza Miha',
+          time: '12:30',
+          users: [
+            'Arsen', 'Karol', 'Adam', 'Lenny'
+          ]
+        },
+        {
+          id: 2,
+          restaurantName: 'Kwardans',
+          time: '13:30',
+          users: [
+            'Michał', 'Marta'
+          ]
+        }
+      ]
+    }
+  }
+
+
+
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="main-page">
+        {
+          this.state.lunches.map((lunch) => {
+            return <Lunch lunch={lunch} />
+          })
+        }
       </div>
-    );
+    )
   }
 }
 
