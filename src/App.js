@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Lunch from './components/Lunch';
+import AddLunch from './components/AddLunch';
 
 class App extends Component {
   constructor(props) {
@@ -25,9 +26,14 @@ class App extends Component {
   render() {
     return (
       <div className="main-page">
+        <nav className="navbar navbar-inverse bg-primary">
+          <a className="navbar-brand" href="#">Navbar</a>
+        </nav>
+        <AddLunch />
+
         {
           this.state.lunches.map((lunch) => {
-            return <Lunch lunch={lunch} onCloseClick={this.removeLunch} />
+            return <Lunch lunch={lunch} onRemoveClick={this.removeLunch} />
           })
         }
       </div>

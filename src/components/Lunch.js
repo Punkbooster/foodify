@@ -12,7 +12,7 @@ const Lunch = (props) => (
          </li>
        ))}
      </ul>
-     <button className='btn btn-danger' onClick={() => props.onCloseClick(props.lunch.id)}>
+     <button className='btn btn-danger' onClick={() => props.onRemoveClick(props.lunch.id)}>
        Remove lunch
      </button>
    </div>
